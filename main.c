@@ -50,7 +50,7 @@ int main(){
     scanf("%f", &massaUsuario);
 
     if((massaUsuario > massaNecessaria * 1.1)||(massaUsuario < massaNecessaria * 0.9)) {
-        time(3);
+
         printf("Carro decolou nos topos\nGame Over");
         return 1;
     }
