@@ -1,0 +1,3 @@
+/home/gustavo/CLionProjects/ProgramaClaudino/cmake-build-debug/CMakeFiles/ProgramaClaudino.dir
+/home/gustavo/CLionProjects/ProgramaClaudino/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/gustavo/CLionProjects/ProgramaClaudino/cmake-build-debug/CMakeFiles/rebuild_cache.dir
