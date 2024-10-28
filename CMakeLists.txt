@@ -4,4 +4,5 @@ project(ProgramaClaudino C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(ProgramaClaudino
-    main.c)
+    main.c
+        programaclaudino.c)
