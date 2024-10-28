@@ -44,6 +44,7 @@ int main(){
     float porcentagem = parado.massa / massaNecessaria;
     printf("A porcentagem de massa necessária, em comparação com a antiga massa é: %f\n", porcentagem);
 
+    //o usuário da a massa e precisamos calcular se ela é viável ou não para o veículo seguir o trejeto
     float massaUsuario;
     printf("Digite a nova massa:");
     scanf("%f", &massaUsuario);
@@ -54,9 +55,19 @@ int main(){
         return 1;
     }
 
-    
+    printf("O veículo alcançou a ponto C com sucesso");
 
-    // agora teremos que calcular a energia potencial em
+    // nesse ponto precisamos calcular a energia potencial de E, pois a cinética de D terá q ser igual
+    // ent devemos calcular um freio para q haja perda de energia entre C e D
+
+    // energia potencial em E, é m*g*h, considerando a nova massa digitada pelo usuário
+
+
+    // energia potencial em E
+    potention = potencial(massaUsuario , altura * 0.75 , g);
+
+    // agora temos que igualar a energia cinética em D com a potencial em
+
 
     return 0;
 }
