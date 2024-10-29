@@ -44,11 +44,10 @@ int main(){
     printf("A porcentagem de massa necessária, em comparação com a antiga massa é: %0.2f\n", porcentagem);
 
     //o usuário da a massa e precisamos calcular se ela é viável ou não para o veículo seguir o trejeto
-    float massaUsuario;
     printf("Digite a nova massa:");
-    scanf("%f", &massaUsuario);
+    scanf("%f", &parado.velocidade);
 
-    if((massaUsuario > massaNecessaria * 1.1)||(massaUsuario < massaNecessaria * 0.9)) {
+    if((parado.velocidade > massaNecessaria * 1.1)||(parado.velocidade < massaNecessaria * 0.9)) {
 
         printf("Carro decolou nos topos\nGame Over");
         return 0;
@@ -62,8 +61,8 @@ int main(){
 
 
     // energia potencial em E
-    float potentialE = potencial(massaUsuario , altura * 0.75 , g);
-    float potentialC = potencial(massaUsuario , altura * 1.25 , g);
+    float potentialE = potencial(parado.velocidade , altura * 0.75 , g);
+    float potentialC = potencial(parado.velocidade , altura * 1.25 , g);
     // a energia cinetica de D precisa ser a energia potencial em E, para isso precisamos aplicar uma força contrária ao movimento
     // agora para achar o trabalho da força freio, temos que a (energia potencial de C) - (enegia potencial de E)
 
@@ -100,24 +99,34 @@ int main(){
     printf("A porcentagem de massa necessária, em comparação com a antiga massa é %0.2f:\n", porcentagem);
 
     printf("Digite a nova massa:\n");
-    scanf("%f", &massaUsuario);
+    scanf("%f", &parado.velocidade);
 
-    if((massaUsuario > massaNecessaria * 1.1) || (massaUsuario < massaNecessaria * 0.9)) {
+    if((parado.velocidade > massaNecessaria * 1.1) || (parado.velocidade < massaNecessaria * 0.9)) {
         printf("Carro decolou nos topos\nGameover");
         return 0;
     }
 
     printf("O veículo alcançou o ponto G com sucesso");
     // ele chega no ponto G com enegia = potentialE
-    // temos que descombrir a energia potencial relacionada ao trajeto GH --> massaUsuario * g * (1/8)*h
+    // temos que descombrir a energia potencial relacionada ao trajeto GH --> parado.velocidade * g * (1/8)*h
 
-    int energiadescida = potencial(massaUsuario , altura/8 , g);
+    int energiadescida = potencial(parado.velocidade , altura/8 , g);
     energia -= energiadescida;
 
     // agora essa energia será toda convertida em cinética, para descobrir sua velocidade, é somente igualar a energia cinética a variavel energia, isolando o a velociade;
-    float velcidadeDescida = sqrt((energia * 2) / massaUsuario);
+    float velocidadeDescida = sqrt((energia * 2) / parado.velocidade);
 
     // agora aplicamos a fórmula de torricheli, para descobrir quantos m/s² terá que ter o freio
 
+    //aqui estou meio que otimizando o codigo, poupando bytes
+    aceleracaofr = (-velocidadeDescida) / (2 * (3 * altura));
+    printf("Digite o freio que será necessário (em m/s²): \n");
+    scanf("%d", freioUsuario);
+
+    if((freioUsuario < aceleracaofr * 0.9) || (freioUsuario > aceleracaofr * 1.1)){
+        printf("Errou otário\n");
+        return 0;
+    }
+    printf("O veículo conseguiu frear com sucesso até o ponto I \n parábens jogador vosmicê ganhou nessa bosta");
     return 0;
 }
