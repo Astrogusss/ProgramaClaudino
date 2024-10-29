@@ -129,4 +129,6 @@ int main(){
     }
     printf("O veículo conseguiu frear com sucesso até o ponto I \n parábens jogador vosmicê ganhou nessa bosta");
     return 0;
+
+    //PEDRO, ALTEREI ACHO QUE A VARIAVEL "MASSA USUARIO" PAARA "PARADO.MASSA" PRA FICAR MAIS OTIMIZADO
 }
