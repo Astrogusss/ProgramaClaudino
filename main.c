@@ -119,7 +119,7 @@ int main(){
     // agora aplicamos a fórmula de torricheli, para descobrir quantos m/s² terá que ter o freio
 
     //aqui estou meio que otimizando o codigo, poupando bytes
-    aceleracaofr = (-velocidadeDescida) / (2 * (3 * altura));
+    aceleracaofr = (-1)*(pow(velocidadeDescida , 2)) / (2 * (3 * altura));
     printf("Digite o freio que será necessário (em m/s²): \n");
     scanf("%d", freioUsuario);
 
