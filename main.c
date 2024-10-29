@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "programaclaudino.h"
 #include <math.h>
-#include <time.h>
+
 
 const float g = 10;
 // quantidade de movimento m1 * v1 = m2 * v2;
@@ -41,8 +40,8 @@ int main(){
 
     // agora estamos calculando a massa que ele precisa atingir para consegeguir alcançar o topo do ponto C
     float massaNecessaria= energia / (g * (altura * 1.25));
-    float porcentagem = parado.massa / massaNecessaria;
-    printf("A porcentagem de massa necessária, em comparação com a antiga massa é: %f\n", porcentagem);
+    float porcentagem = ceil(100*(parado.massa / massaNecessaria));
+    printf("A porcentagem de massa necessária, a mais, em comparação com a antiga massa é: %0.2f\n", porcentagem);
 
     //o usuário da a massa e precisamos calcular se ela é viável ou não para o veículo seguir o trejeto
     float massaUsuario;
