@@ -115,6 +115,9 @@ int main(){
     energia -= energiadescida;
 
     // agora essa energia será toda convertida em cinética, para descobrir sua velocidade, é somente igualar a energia cinética a variavel energia, isolando o a velociade;
+    float velcidadeDescida = sqrt((energia * 2) / massaUsuario);
+
+    // agora aplicamos a fórmula de torricheli, para descobrir quantos m/s² terá que ter o freio
 
     return 0;
 }
