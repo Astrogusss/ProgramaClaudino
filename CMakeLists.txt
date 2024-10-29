@@ -6,3 +6,4 @@ set(CMAKE_C_STANDARD 11)
 add_executable(ProgramaClaudino
     main.c
         programaclaudino.c)
+target_link_libraries(ProgramaClaudino m)

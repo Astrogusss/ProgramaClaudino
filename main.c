@@ -32,7 +32,7 @@ int main(){
     float energia = potention + cineticon;
 
     // sabemos com que energia o carro em repouso ira sair
-    printf("A energia potencial é: %0.2f e a energia cinetica é: %0.2f e suas somas é: %0.2f \n", potencial , cinetica , energia);
+    printf("A energia potencial é: %0.2f e a energia cinetica é: %0.2f e suas somas é: %0.2f \n", potention , cineticon , energia);
 
     //Próxima etapa--> partir da altura 0 , e chegar ate a 5/4 da altura, qual será a nova massa necessária para que ele atinja a nova altura
     // no ponto B ele chega com o valor da variavel energia
@@ -59,14 +59,23 @@ int main(){
 
     // nesse ponto precisamos calcular a energia potencial de E, pois a cinética de D terá q ser igual
     // ent devemos calcular um freio para q haja perda de energia entre C e D
-
     // energia potencial em E, é m*g*h, considerando a nova massa digitada pelo usuário
 
 
     // energia potencial em E
-    potention = potencial(massaUsuario , altura * 0.75 , g);
+    float potentialE = potencial(massaUsuario , altura * 0.75 , g);
+    float potentialC = potencial(massaUsuario , altura * 1.25 , g);
+    // a energia cinetica de D precisa ser a energia potencial em E, para isso precisamos aplicar uma força contrária ao movimento
+    // agora para achar o trabalho da força freio, temos que a (energia potencial de C) - (enegia potencial de E)
 
-    // agora temos que igualar a energia cinética em D com a potencial em
+    // depois temos que usar a segunda lei de newton para descobrir qual a aceleração que ela age no carro
+
+    // resumindo o calculo do freio seria (energia potencia em C) - (energia potencial em E)
+
+    float aceleracaofr = aceleracaofreio(potentialC , potentialE , altura * 1.25 , massaNecessaria);
+
+    printf("A aceleração do freio que o carro terá que de ser é de %f\n : " , aceleracaofr);
+
 
 
     return 0;

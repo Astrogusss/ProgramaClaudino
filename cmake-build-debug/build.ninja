@@ -71,6 +71,7 @@ build CMakeFiles/ProgramaClaudino.dir/programaclaudino.c.o: C_COMPILER__Programa
 
 build ProgramaClaudino: C_EXECUTABLE_LINKER__ProgramaClaudino_Debug CMakeFiles/ProgramaClaudino.dir/main.c.o CMakeFiles/ProgramaClaudino.dir/programaclaudino.c.o
   FLAGS = -g
+  LINK_LIBRARIES = -lm
   OBJECT_DIR = CMakeFiles/ProgramaClaudino.dir
   POST_BUILD = :
   PRE_LINK = :

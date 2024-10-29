@@ -14,3 +14,7 @@ float potencial (float massa , float altura , float gravidade) {
 float energia(float cinetica , float potencial) {
     return cinetica + potencial;
 }
+
+float aceleracaofreio(float energiamaior , float energiamenor , float altura , float massa){
+    return ((energiamaior - energiamenor) / altura) / massa;
+}
