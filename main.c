@@ -41,7 +41,7 @@ int main(){
     // agora estamos calculando a massa que ele precisa atingir para consegeguir alcançar o topo do ponto C
     float massaNecessaria= energia / (g * (altura * 1.25));
     float porcentagem = ceil(100*(parado.massa / massaNecessaria));
-    printf("A porcentagem de massa necessária, a mais, em comparação com a antiga massa é: %0.2f\n", porcentagem);
+    printf("A porcentagem de massa necessária, em comparação com a antiga massa é: %0.2f\n", porcentagem);
 
     //o usuário da a massa e precisamos calcular se ela é viável ou não para o veículo seguir o trejeto
     float massaUsuario;
@@ -51,10 +51,10 @@ int main(){
     if((massaUsuario > massaNecessaria * 1.1)||(massaUsuario < massaNecessaria * 0.9)) {
 
         printf("Carro decolou nos topos\nGame Over");
-        return 1;
+        return 0;
     }
 
-    printf("O veículo alcançou a ponto C com sucesso");
+    printf("O veículo alcançou a ponto C com sucesso\n");
 
     // nesse ponto precisamos calcular a energia potencial de E, pois a cinética de D terá q ser igual
     // ent devemos calcular um freio para q haja perda de energia entre C e D
@@ -73,9 +73,48 @@ int main(){
 
     float aceleracaofr = aceleracaofreio(potentialC , potentialE , altura * 1.25 , massaNecessaria);
 
-    printf("A aceleração do freio que o carro terá que de ser é de %f\n : " , aceleracaofr);
+    /*printf("A aceleração do freio que o carro terá que de ser é de %f\n : " , aceleracaofr); */
 
+    // o usuário tem que informar qual aceleração (que ele achar) que o carrinho deverá ter
+    float freioUsuario;
+    printf("Digite o freio que será necessário (em m/s²):\n");
+    scanf("%d", &freioUsuario);
 
+    if((freioUsuario < aceleracaofr * 0.9) || (freioUsuario > aceleracaofr * 1.1)){
+        printf("Errou otário\n");
+        return 0;
+    }
+
+    printf("O veículo alcançou ao ponto E com sucesso\n");
+
+    // agora temos que saber da energia total envolvida no ponto E, que seria o potencial nessa altura, que ja foi calculado = potencialE.
+    // a energia que tem no ponto F é  = potencialE.
+
+    energia = potentialE;
+
+    // para calcular a massa necessaria, deveremos fazer o mesmo método que fizemso no momento anterior
+    // a altura ser á metade dela
+    float massa = massaNecessaria;
+    massaNecessaria = energia / (g * (altura * 0.5));
+    porcentagem = ceil(100*(massa/ massaNecessaria));
+    printf("A porcentagem de massa necessária, em comparação com a antiga massa é %0.2f:\n", porcentagem);
+
+    printf("Digite a nova massa:\n");
+    scanf("%f", &massaUsuario);
+
+    if((massaUsuario > massaNecessaria * 1.1) || (massaUsuario < massaNecessaria * 0.9)) {
+        printf("Carro decolou nos topos\nGameover");
+        return 0;
+    }
+
+    printf("O veículo alcançou o ponto G com sucesso");
+    // ele chega no ponto G com enegia = potentialE
+    // temos que descombrir a energia potencial relacionada ao trajeto GH --> massaUsuario * g * (1/8)*h
+
+    int energiadescida = potencial(massaUsuario , altura/8 , g);
+    energia -= energiadescida;
+
+    // agora essa energia será toda convertida em cinética, para descobrir sua velocidade, é somente igualar a energia cinética a variavel energia, isolando o a velociade;
 
     return 0;
 }
