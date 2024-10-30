@@ -80,7 +80,7 @@ int main(){
     scanf("%d", &freioUsuario);
 
     if((freioUsuario < aceleracaofr * 0.9) || (freioUsuario > aceleracaofr * 1.1)){
-        printf("Errou otário\n");
+        printf("Errou \n");
         return 0;
     }
 
@@ -124,7 +124,7 @@ int main(){
     scanf("%d", freioUsuario);
 
     if((freioUsuario < aceleracaofr * 0.9) || (freioUsuario > aceleracaofr * 1.1)){
-        printf("Errou otário\n");
+        printf("Errou\n");
         return 0;
     }
     printf("O veículo conseguiu frear com sucesso até o ponto I \n parábens jogador vosmicê ganhou nessa bosta");
