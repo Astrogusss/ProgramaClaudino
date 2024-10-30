@@ -39,7 +39,7 @@ int main(){
 
 
     // agora estamos calculando a massa que ele precisa atingir para consegeguir alcançar o topo do ponto C
-    float massaNecessaria= energia / (g * (altura * 1.25));
+     float massaNecessaria= energia / (g * (altura * 1.25));
     float porcentagem = ceil(100*(parado.massa / massaNecessaria));
     printf("A porcentagem de massa necessária, em comparação com a antiga massa é: %0.2f\n", porcentagem);
 
@@ -77,7 +77,7 @@ int main(){
     // o usuário tem que informar qual aceleração (que ele achar) que o carrinho deverá ter
     float freioUsuario;
     printf("Digite o freio que será necessário (em m/s²):\n");
-    scanf("%d", &freioUsuario);
+    scanf("%f", &freioUsuario);
 
     if((freioUsuario < aceleracaofr * 0.9) || (freioUsuario > aceleracaofr * 1.1)){
         printf("Errou \n");
@@ -106,7 +106,8 @@ int main(){
         return 0;
     }
 
-    printf("O veículo alcançou o ponto G com sucesso");
+
+    printf("O veículo alcançou o ponto G com sucesso\n");
     // ele chega no ponto G com enegia = potentialE
     // temos que descombrir a energia potencial relacionada ao trajeto GH --> parado.massa * g * (1/8)*h
 
@@ -121,7 +122,7 @@ int main(){
     // agora aplicamos a fórmula de torricheli, para descobrir quantos m/s² terá que ter o freio
 
     //aqui estou meio que otimizando o codigo, poupando bytes
-    aceleracaofr = (-1)*(pow(velocidadeDescida , 2)) / (2 * (3 * altura));
+    aceleracaofr = (pow(velocidadeDescida , 2)) / (2 * (3 * altura));
     printf("Digite o freio que será necessário (em m/s²): \n");
     scanf("%d", freioUsuario);
 
