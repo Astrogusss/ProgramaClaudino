@@ -91,7 +91,7 @@ int main(){
 
     energia = potentialE;
 
-    // para calcular a massa necessaria, deveremos fazer o mesmo método que fizemso no momento anterior
+    // para calcular a massa necessaria, deveremos fazer o mesmo método que fizemos no momento anterior
     // a altura ser á metade dela
     float massa = massaNecessaria;
     massaNecessaria = energia / (g * (altura * 0.5));
@@ -111,6 +111,7 @@ int main(){
     // temos que descombrir a energia potencial relacionada ao trajeto GH --> parado.massa * g * (1/8)*h
 
     int energiadescida = potencial(parado.massa , altura/8 , g);
+    //isso é a potencial de G?   nao, ela é a potencial de g em comparacao com H , tipo, ela vai perder essa energia e virar cinetica ,
     energia -= energiadescida;
     // aqui to descobrindo a energia que sera convertida em cinética
 
