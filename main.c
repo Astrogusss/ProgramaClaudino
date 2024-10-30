@@ -112,6 +112,7 @@ int main(){
 
     int energiadescida = potencial(parado.massa , altura/8 , g);
     energia -= energiadescida;
+    // aqui to descobrindo a energia que sera convertida em cinética
 
     // agora essa energia será toda convertida em cinética, para descobrir sua velocidade, é somente igualar a energia cinética a variavel energia, isolando o a velociade;
     float velocidadeDescida = sqrt((energia * 2) / parado.massa);
@@ -123,11 +124,13 @@ int main(){
     printf("Digite o freio que será necessário (em m/s²): \n");
     scanf("%d", freioUsuario);
 
+    // aqui eu usei torricheli para descobrir qual a aceleração que o freio deve agir no carro, isolando a aceleração da equação
+
     if((freioUsuario < aceleracaofr * 0.9) || (freioUsuario > aceleracaofr * 1.1)){
         printf("Errou\n");
         return 0;
     }
-    printf("O veículo conseguiu frear com sucesso até o ponto I \n parábens jogador vosmicê ganhou nessa bosta");
+    printf("O veículo conseguiu frear com sucesso até o ponto I \n parábens jogador vosmicê ganhou");
     return 0;
 
     //PEDRO, ALTEREI ACHO QUE A VARIAVEL "MASSA USUARIO" PAARA "PARADO.MASSA" PRA FICAR MAIS OTIMIZADO
